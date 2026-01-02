@@ -3,137 +3,118 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Titus Weng | WebGPU Index</title>
+    <title>Titus Weng | WebGPU Lab</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-content">
-            <div class="brand">
-                <span class="bolt">⚡</span>
-                <div class="brand-text">
+    <div class="blob-c">
+        <div class="shape-blob"></div>
+        <div class="shape-blob one"></div>
+        <div class="shape-blob two"></div>
+        <div class="shape-blob three"></div>
+    </div>
+
+    <main class="glass-wrapper">
+        <header class="hero">
+            <div class="profile-area">
+                <div class="avatar">TW</div>
+                <div>
                     <h1>Titus Weng</h1>
-                    <p>Computer Graphics Lab — SP25</p>
+                    <p class="tagline">Creative Technologist & Graphics Engineer</p>
                 </div>
             </div>
-            <div class="system-status">
-                <span class="label">API_STATUS:</span>
-                <span class="value">WEBGPU_READY</span>
-            </div>
-        </div>
-    </header>
+            <div class="pill">SP25 Computer Graphics</div>
+        </header>
 
-    <main class="container">
         <div class="project-grid">
-            <a href="quest1/index.html" class="project-card">
-                <div class="card-num">01</div>
-                <div class="card-info">
-                    <h3>Static Scene</h3>
-                    <p>Initial 2D rasterization and coordinate mapping.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest1/index.html" class="glass-card">
+                <div class="icon">01</div>
+                <h3>2D Static</h3>
+                <p>Fundamental rasterization and pixel-perfect rendering.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest2/quest2.html" class="project-card">
-                <div class="card-num">02</div>
-                <div class="card-info">
-                    <h3>Animated Scene</h3>
-                    <p>Uniform buffers and temporal state management.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest2/quest2.html" class="glass-card">
+                <div class="icon">02</div>
+                <h3>Animated</h3>
+                <p>Temporal loops and frame-rate independent motion.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest3/quest3.html" class="project-card">
-                <div class="card-num">03</div>
-                <div class="card-info">
-                    <h3>Interaction</h3>
-                    <p>Event handling and dynamic input-driven updates.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest3/quest3.html" class="glass-card">
+                <div class="icon">03</div>
+                <h3>Interactive</h3>
+                <p>User-driven updates and dynamic buffer mapping.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest4/quest4.html" class="project-card">
-                <div class="card-num">04</div>
-                <div class="card-info">
-                    <h3>Particle System</h3>
-                    <p>Compute shader driven simulation and physics.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest4/quest4.html" class="glass-card">
+                <div class="icon">04</div>
+                <h3>Particles</h3>
+                <p>Compute shader simulations with high-density physics.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest5/quest5.html" class="project-card">
-                <div class="card-num">05</div>
-                <div class="card-info">
-                    <h3>Collision</h3>
-                    <p>Spatial detection and vertex deformation logic.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest5/quest5.html" class="glass-card">
+                <div class="icon">05</div>
+                <h3>Deformation</h3>
+                <p>Vertex-level manipulation and collision logic.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest6/quest6.html" class="project-card">
-                <div class="card-num">06</div>
-                <div class="card-info">
-                    <h3>3D Objects</h3>
-                    <p>Perspective projection and 3D mesh rendering.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest6/quest6.html" class="glass-card">
+                <div class="icon">06</div>
+                <h3>3D Mesh</h3>
+                <p>Matrix transformations and perspective projection.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest7/quest7.html" class="project-card">
-                <div class="card-num">07</div>
-                <div class="card-info">
-                    <h3>Volume Rendering</h3>
-                    <p>Ray marching through 3D texture data.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest7/quest7.html" class="glass-card">
+                <div class="icon">07</div>
+                <h3>Volumetric</h3>
+                <p>Ray-marching techniques through 3D texture fields.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest8/quest8.html" class="project-card">
-                <div class="card-num">08</div>
-                <div class="card-info">
-                    <h3>RT Shading</h3>
-                    <p>PBR materials and texture sampling in RT.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest8/quest8.html" class="glass-card">
+                <div class="icon">08</div>
+                <h3>RT Shading</h3>
+                <p>Physically based shading and texture sampling.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest9/quest9.html" class="project-card">
-                <div class="card-num">09</div>
-                <div class="card-info">
-                    <h3>RT Shadows</h3>
-                    <p>Recursive ray tracing for mirrors and shadows.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest9/quest9.html" class="glass-card">
+                <div class="icon">09</div>
+                <h3>RT Mirrors</h3>
+                <p>Recursive ray tracing for shadows and reflection.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="quest10/quest10.html" class="project-card">
-                <div class="card-num">10</div>
-                <div class="card-info">
-                    <h3>Interactive RT</h3>
-                    <p>Acceleration structures and real-time RT.</p>
-                </div>
-                <div class="card-tag">QUEST</div>
+            <a href="quest10/quest10.html" class="glass-card">
+                <div class="icon">10</div>
+                <h3>Accel RT</h3>
+                <p>Hardware-accelerated ray-scene intersections.</p>
+                <div class="glow"></div>
             </a>
 
-            <a href="FinalProject/" class="project-card highlight">
-                <div class="card-num">FP</div>
-                <div class="card-info">
-                    <h3>Game Practice</h3>
-                    <p>Comprehensive 2D WebGPU game engine integration.</p>
-                </div>
-                <div class="card-tag">CORE</div>
+            <a href="FinalProject/" class="glass-card special">
+                <div class="icon">FP</div>
+                <h3>Game Project</h3>
+                <p>Complete WebGPU game engine integration.</p>
+                <div class="glow"></div>
             </a>
-
         </div>
+
+        <footer class="site-footer">
+            <p>© <span id="year"></span> TITUS WENG • BUILT WITH WEBGPU</p>
+        </footer>
     </main>
 
-    <footer class="footer">
-        <p>Built with WGSL & Modern Web Standards</p>
-        <div class="footer-line"></div>
-    </footer>
-
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

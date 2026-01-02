@@ -1,147 +1,159 @@
 :root {
-    --bg: #000000;
-    --card-bg: #0a0a0a;
-    --card-hover: #111111;
-    --border: #1f1f1f;
-    --accent: #ffffff; /* Keeping it monochromatic for a clean look */
-    --text-dim: #888888;
-    --font-sans: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --bg: #0f0a1e;
+    --glass: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --accent: #ff00c8;
+    --font-head: 'Outfit', sans-serif;
 }
 
 body {
-    background-color: var(--bg);
-    color: #fff;
-    font-family: var(--font-sans);
     margin: 0;
-    display: flex;
-    flex-direction: column;
+    padding: 0;
+    background-color: var(--bg);
+    font-family: var(--font-head);
+    color: white;
+    overflow-x: hidden;
     min-height: 100vh;
 }
 
-/* Header */
-.site-header {
-    border-bottom: 1px solid var(--border);
-    padding: 40px 0;
-    margin-bottom: 60px;
+/* Background Animation */
+.blob-c {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    filter: blur(80px);
 }
 
-.header-content {
-    max-width: 1200px;
+.shape-blob {
+    position: absolute;
+    width: 400px; height: 400px;
+    background: #4facfe;
+    border-radius: 50%;
+    opacity: 0.4;
+    animation: move 20s infinite alternate;
+}
+
+.shape-blob.one { background: #ff00c8; width: 500px; height: 500px; left: -10%; top: 20%; animation-duration: 30s; }
+.shape-blob.two { background: #00f2ff; width: 400px; height: 400px; right: 0; bottom: 0; animation-duration: 25s; }
+.shape-blob.three { background: #7000ff; width: 300px; height: 300px; right: 20%; top: -10%; }
+
+@keyframes move {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(100px, 100px) scale(1.2); }
+}
+
+/* Main Layout */
+.glass-wrapper {
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 60px 24px;
+}
+
+.hero {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
+    margin-bottom: 80px;
 }
 
-.brand { display: flex; align-items: flex-start; gap: 16px; }
-.bolt { font-size: 24px; color: var(--accent); }
-h1 { margin: 0; font-size: 20px; letter-spacing: -0.02em; font-weight: 600; }
-.brand p { margin: 4px 0 0; font-size: 14px; color: var(--text-dim); }
+.profile-area { display: flex; align-items: center; gap: 20px; }
 
-.system-status {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 4px;
+.avatar {
+    width: 60px; height: 60px;
+    background: linear-gradient(45deg, #ff00c8, #00f2ff);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.5rem;
 }
 
-.system-status .label { color: var(--text-dim); }
-.system-status .value { color: var(--accent); }
+h1 { margin: 0; font-size: 2rem; letter-spacing: -1px; }
+.tagline { margin: 5px 0 0; opacity: 0.6; font-size: 0.9rem; }
 
-/* Grid */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    flex-grow: 1;
+.pill {
+    padding: 8px 16px;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
 }
 
+/* Project Grid */
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1px; /* Creates the thin border look */
-    background-color: var(--border); /* Grid background acts as borders */
-    border: 1px solid var(--border);
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
 }
 
-/* Project Card */
-.project-card {
-    background-color: var(--card-bg);
+.glass-card {
+    position: relative;
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    padding: 35px;
+    border-radius: 30px;
     text-decoration: none;
-    color: inherit;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    transition: background-color 0.2s ease;
+    color: white;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.project-card:hover {
-    background-color: var(--card-hover);
+.glass-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.08);
 }
 
-.card-num {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--text-dim);
+.icon {
+    font-family: 'JetBrains Mono';
+    font-size: 0.8rem;
+    color: #00f2ff;
+    margin-bottom: 20px;
+    opacity: 0.8;
 }
 
-.project-card h3 {
+.glass-card h3 {
     margin: 0;
-    font-size: 16px;
+    font-size: 1.4rem;
     font-weight: 600;
 }
 
-.project-card p {
-    margin: 8px 0 0;
-    font-size: 14px;
-    line-height: 1.6;
-    color: var(--text-dim);
+.glass-card p {
+    margin: 12px 0 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.6;
 }
 
-.card-tag {
-    margin-top: auto;
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    color: var(--text-dim);
-    text-transform: uppercase;
+/* Specific styling for the Special/Final Project card */
+.glass-card.special {
+    background: linear-gradient(135deg, rgba(255, 0, 200, 0.1), rgba(0, 242, 255, 0.1));
 }
 
-/* Accent for the Final Project or special items */
-.project-card.highlight:hover {
-    background-color: #1a1a1a;
+.glass-card.special .icon { color: #ff00c8; }
+
+/* Subtle glow effect on hover */
+.glow {
+    position: absolute;
+    width: 100px; height: 100px;
+    background: white;
+    filter: blur(50px);
+    opacity: 0;
+    top: 0; right: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
 }
 
-.project-card.highlight .card-num {
-    color: #fff;
-}
+.glass-card:hover .glow { opacity: 0.15; }
 
-/* Footer */
-.footer {
-    max-width: 1200px;
-    margin: 80px auto 40px;
-    width: 100%;
-    padding: 0 24px;
+.site-footer {
+    margin-top: 100px;
     text-align: center;
-}
-
-.footer p {
-    font-size: 12px;
-    color: var(--text-dim);
-    font-family: var(--font-mono);
-}
-
-.footer-line {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin-top: 20px;
-}
-
-@media (max-width: 600px) {
-    .header-content { flex-direction: column; align-items: flex-start; gap: 20px; }
+    font-size: 10px;
+    letter-spacing: 2px;
+    opacity: 0.4;
 }
