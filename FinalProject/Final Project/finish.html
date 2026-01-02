@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8"><title>Level Complete</title>
+    <style>
+     body{margin:0;display:flex;flex-direction:column;align-items:center;
+          justify-content:center;gap:24px;font:24px/1.4 Arial;background:#101820;
+          color:#eee}
+     button{padding:12px 24px;font-size:20px;border-radius:8px;border:none;
+            background:#4caf50;color:#fff;cursor:pointer}
+    </style></head><body>
+    <h1>Level Complete!</h1>
+    <p id="stats"></p>
+    <button onclick="location.href='game.html'">Play Again</button>
+    
+    <script>
+     const qs   = new URLSearchParams(location.search);
+     const time = qs.get('time')  ?? '??';
+     const score= qs.get('score') ?? '0';
+     document.getElementById('stats').textContent =
+       `Time used : ${time}s   |   Score : ${score}`;
+    </script>
+    </body></html>
+    

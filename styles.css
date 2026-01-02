@@ -1,130 +1,147 @@
-/* Initial static black background */
-html, body {
-    overflow: hidden; /* Prevent scrolling */
-    width: 100%;
-    height: 100%;
+:root {
+    --bg: #000000;
+    --card-bg: #0a0a0a;
+    --card-hover: #111111;
+    --border: #1f1f1f;
+    --accent: #ffffff; /* Keeping it monochromatic for a clean look */
+    --text-dim: #888888;
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: var(--bg);
+    color: #fff;
+    font-family: var(--font-sans);
     margin: 0;
-    padding: 0;
-    background: #000000; /* Static black background before the spell */
-    color: #fefefe;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* Activate gradient animation after the spell */
-body.active {
-    background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-    background-size: 400% 400%;
-    animation: gradientBackground 10s ease infinite; /* Smooth gradient transition */
+/* Header */
+.site-header {
+    border-bottom: 1px solid var(--border);
+    padding: 40px 0;
+    margin-bottom: 60px;
 }
 
-/* Gradient background animation */
-@keyframes gradientBackground {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Mouse-following light effect */
-#lightEffect {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%);
-    pointer-events: none;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    display: none; /* Initially hidden */
-}
-
-/* Style for the main heading */
-h1 {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 3rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-    animation: glowText 2s ease-in-out infinite alternate; /* Glow animation for heading */
-}
-
-/* Grid container for portal buttons */
-.portal-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+.header-content {
     max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
-/* Style for the portal button */
-.portal-button {
-    display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    color: #ffffff;
-    border: none;
-    border-radius: 50px;
-    text-align: center;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    text-decoration: none; /* Remove underline */
-    background: linear-gradient(90deg, #1e90ff, #00bfff);
-    justify-self: center;
+.brand { display: flex; align-items: flex-start; gap: 16px; }
+.bolt { font-size: 24px; color: var(--accent); }
+h1 { margin: 0; font-size: 20px; letter-spacing: -0.02em; font-weight: 600; }
+.brand p { margin: 4px 0 0; font-size: 14px; color: var(--text-dim); }
+
+.system-status {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 4px;
 }
 
-.portal-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(90deg, #00bfff, #1e90ff);
+.system-status .label { color: var(--text-dim); }
+.system-status .value { color: var(--accent); }
+
+/* Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    flex-grow: 1;
 }
 
-/* Glow animation for the heading */
-@keyframes glowText {
-    from {
-        text-shadow: 0 0 10px #ffffff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-    }
-    to {
-        text-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
-    }
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1px; /* Creates the thin border look */
+    background-color: var(--border); /* Grid background acts as borders */
+    border: 1px solid var(--border);
 }
 
-/* Style for paragraphs */
-p {
-    text-align: center;
-    font-size: 1.2rem;
-    margin: 20px auto;
-    max-width: 600px;
+/* Project Card */
+.project-card {
+    background-color: var(--card-bg);
+    text-decoration: none;
+    color: inherit;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    transition: background-color 0.2s ease;
+}
+
+.project-card:hover {
+    background-color: var(--card-hover);
+}
+
+.card-num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.project-card h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.project-card p {
+    margin: 8px 0 0;
+    font-size: 14px;
     line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: var(--text-dim);
 }
 
-/* Style for the spell button */
-button {
-    display: block;
-    margin: 30px auto;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background: linear-gradient(90deg, #1e90ff, #00bfff);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
+.card-tag {
+    margin-top: auto;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
 }
 
-button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(90deg, #00bfff, #1e90ff);
+/* Accent for the Final Project or special items */
+.project-card.highlight:hover {
+    background-color: #1a1a1a;
 }
 
-/* Spell result text style */
-#spellResult {
-    margin-top: 20px;
+.project-card.highlight .card-num {
+    color: #fff;
+}
+
+/* Footer */
+.footer {
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    width: 100%;
+    padding: 0 24px;
     text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffeb3b;
-    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.7);
+}
+
+.footer p {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-family: var(--font-mono);
+}
+
+.footer-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .header-content { flex-direction: column; align-items: flex-start; gap: 20px; }
 }

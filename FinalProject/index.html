@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forest of Ice and Flame - Adventure Quest</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0A3D30, #154734, #0F2027);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+
+      #renderCanvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      .menu-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        z-index: 1;
+        text-align: center;
+        color: #FFF;
+        padding: 20px;
+}
+
+
+      h1 {
+        font-size: 52px;
+        text-shadow: 2px 2px 4px #000;
+      }
+      p {
+        font-size: 22px;
+        text-shadow: 1px 1px 3px #000;
+      }
+      button {
+        font-size: 22px;
+        padding: 12px 24px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        background-color: #FF4500;
+        color: white;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      button:hover {
+        background-color: #E03E00;
+      }
+      #instructionOverlay {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.75);
+        color: #FFF;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 80%;
+        font-size: 20px;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="renderCanvas"></canvas>
+    
+    <div class="menu-content">
+      <h1>Maze of Ice and Flame</h1>
+      <p>
+        Step into the mystical forest where the ice and the fire.
+        Your epic adventure begins here.
+      </p>
+      <button id="startGameButton">Start Game</button>
+      <button id="toggleInstructionsButton">Show Instructions</button>
+      <div id="instructionOverlay">
+        <h2>Game Instructions</h2>
+        <p>
+          Welcome to Maze of Ice and Flame – a 2D adventure where only the right moves ensure your survival and victory.
+        </p>
+        <ul>
+          <li><strong>Movement:</strong> Use <em>A/D</em> (or the Left/Right Arrow keys) to move horizontally.</li>
+          <li><strong>Jumping:</strong> Press the <em>W</em> key or the <em>Up Arrow</em> to jump.</li>
+          <li><strong>Dangerous Regions:</strong> Each hero has its own dangerous region. Stepping into the dangerous zone of the wrong hero will result in death. Make sure you stay in the safe area for your character.</li>
+          <li><strong>Switches:</strong> Some switches can only be triggered by the appropriate hero. Use the correct character to activate these switches and progress through the maze.</li>
+          <li><strong>Star Collection:</strong> Collect stars scattered throughout the maze to boost your score and unlock extra rewards.</li>
+        </ul>
+        <button id="closeInstructionsButton">Close</button>
+      </div>      
+    </div>
+    <script type="module" src="/FinalProject/Final Project/menu.js"></script>
+  </body>
+</html>

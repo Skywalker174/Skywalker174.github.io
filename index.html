@@ -1,53 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>SP 25 Apprentice Titus's Arcane Portal</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Titus Weng | WebGPU Index</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>SP 25 Apprentice Titus's Arcane Portal</h1>
-    <p>This portal is a magical space to learn and explore the art of computer graphics.</p>
 
-    <!-- Button to cast a spell -->
-    <button onclick="castSpell()">Let there be Light!</button>
-    <p id="spellResult"></p>
+    <header class="site-header">
+        <div class="header-content">
+            <div class="brand">
+                <span class="bolt">⚡</span>
+                <div class="brand-text">
+                    <h1>Titus Weng</h1>
+                    <p>Computer Graphics Lab — SP25</p>
+                </div>
+            </div>
+            <div class="system-status">
+                <span class="label">API_STATUS:</span>
+                <span class="value">WEBGPU_READY</span>
+            </div>
+        </div>
+    </header>
 
-    <!-- Portals arranged in a grid with 4 per row -->
-    <div class="portal-container">
-        <a href="quest1/index.html" target="_blank" class="portal-button">Enter the Portal to Quest 1</a>
-        <a href="quest2/quest2.html" target="_blank" class="portal-button">Enter the Portal to Quest 2</a>
-        <a href="quest3/quest3.html" target="_blank" class="portal-button">Enter the Portal to Quest 3</a>
-        <a href="quest4/quest4.html" target="_blank" class="portal-button">Enter the Portal to Quest 4</a>
-        <a href="quest5/quest5.html" target="_blank" class="portal-button">Enter the Portal to Quest 5</a>
-        <a href="quest6/quest6.html" target="_blank" class="portal-button">Enter the Portal to Quest 6</a>
-        <a href="quest7/quest7.html" target="_blank" class="portal-button">Enter the Portal to Quest 7</a>
-        <a href="quest8/quest8.html" target="_blank" class="portal-button">Enter the Portal to Quest 8</a>
-        <a href="quest9/quest9.html" target="_blank" class="portal-button">Enter the Portal to Quest 9</a>
-        <a href="quest10/quest10.html" target="_blank" class="portal-button">Enter the Portal to Quest 10</a>
-    </div>
+    <main class="container">
+        <div class="project-grid">
+            <a href="quest1/index.html" class="project-card">
+                <div class="card-num">01</div>
+                <div class="card-info">
+                    <h3>Static Scene</h3>
+                    <p>Initial 2D rasterization and coordinate mapping.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
 
-    <!-- JavaScript for light and background effects -->
-    <script>
-        const lightEffect = document.createElement('div');
-        lightEffect.id = 'lightEffect';
-        document.body.appendChild(lightEffect);
+            <a href="quest2/quest2.html" class="project-card">
+                <div class="card-num">02</div>
+                <div class="card-info">
+                    <h3>Animated Scene</h3>
+                    <p>Uniform buffers and temporal state management.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
 
-        document.body.addEventListener('mousemove', function(e) {
-            if (lightEffect.style.display === 'block') {
-                lightEffect.style.left = `${e.clientX}px`;
-                lightEffect.style.top = `${e.clientY}px`;
-            }
-        });
+            <a href="quest3/quest3.html" class="project-card">
+                <div class="card-num">03</div>
+                <div class="card-info">
+                    <h3>Interaction</h3>
+                    <p>Event handling and dynamic input-driven updates.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
 
-        function castSpell() {
-            document.getElementById("spellResult").innerText =
-                "Light has filled the portal!";
-            document.body.classList.add('active'); /* Activate gradient animation */
-            lightEffect.style.display = 'block'; /* Enable light following effect */
-        }
-    </script>
+            <a href="quest4/quest4.html" class="project-card">
+                <div class="card-num">04</div>
+                <div class="card-info">
+                    <h3>Particle System</h3>
+                    <p>Compute shader driven simulation and physics.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
 
-    <!-- Div for light effect -->
-    <div id="lightEffect" style="display: none;"></div>
+            <a href="quest5/quest5.html" class="project-card">
+                <div class="card-num">05</div>
+                <div class="card-info">
+                    <h3>Collision</h3>
+                    <p>Spatial detection and vertex deformation logic.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="quest6/quest6.html" class="project-card">
+                <div class="card-num">06</div>
+                <div class="card-info">
+                    <h3>3D Objects</h3>
+                    <p>Perspective projection and 3D mesh rendering.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="quest7/quest7.html" class="project-card">
+                <div class="card-num">07</div>
+                <div class="card-info">
+                    <h3>Volume Rendering</h3>
+                    <p>Ray marching through 3D texture data.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="quest8/quest8.html" class="project-card">
+                <div class="card-num">08</div>
+                <div class="card-info">
+                    <h3>RT Shading</h3>
+                    <p>PBR materials and texture sampling in RT.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="quest9/quest9.html" class="project-card">
+                <div class="card-num">09</div>
+                <div class="card-info">
+                    <h3>RT Shadows</h3>
+                    <p>Recursive ray tracing for mirrors and shadows.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="quest10/quest10.html" class="project-card">
+                <div class="card-num">10</div>
+                <div class="card-info">
+                    <h3>Interactive RT</h3>
+                    <p>Acceleration structures and real-time RT.</p>
+                </div>
+                <div class="card-tag">QUEST</div>
+            </a>
+
+            <a href="FinalProject/" class="project-card highlight">
+                <div class="card-num">FP</div>
+                <div class="card-info">
+                    <h3>Game Practice</h3>
+                    <p>Comprehensive 2D WebGPU game engine integration.</p>
+                </div>
+                <div class="card-tag">CORE</div>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>Built with WGSL & Modern Web Standards</p>
+        <div class="footer-line"></div>
+    </footer>
+
 </body>
 </html>
