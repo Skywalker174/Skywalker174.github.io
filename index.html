@@ -19,18 +19,17 @@
 
     <nav class="top-nav">
         <div class="nav-links">
-            <a href="javascript:void(0)" onclick="openTab('home')" class="nav-item active" id="nav-home">Home</a>
-            <a href="javascript:void(0)" onclick="openTab('bio')" class="nav-item" id="nav-bio">Bio</a>
-            <a href="javascript:void(0)" onclick="openTab('timeline')" class="nav-item" id="nav-timeline">Timeline</a>
-            <a href="javascript:void(0)" onclick="openTab('projects')" class="nav-item" id="nav-projects">Projects</a>
+            <a href="/" class="nav-item active">Home</a>
+            <a href="/bio" class="nav-item">Bio</a>
+            <a href="/projects" class="nav-item">Projects</a>
+            <a href="/resume" class="nav-item">Resume</a>
         </div>
     </nav>
 
     <main class="main-content">
-        
-        <section id="home" class="tab-content active">
+        <section class="tab-content active">
             <div class="hero-center">
-                <h1 class="main-name">TITUS WENG's PORTFORLIO</h1>
+                <h1 class="main-name">TITUS WENG's PORTFOLIO</h1>
                 <p class="subtitle">Creative Technologist + Graphics Engineer</p>
                 <div class="contact-links">
                     <a href="mailto:tw013@bucknell.edu">tw013@bucknell.edu</a>
@@ -39,138 +38,7 @@
                 </div>
             </div>
         </section>
-
-        <section id="bio" class="tab-content">
-            <div class="section-inner glass-card">
-                <div class="bio-layout">
-                    <div class="bio-image-col">
-                        <img src="me.png" alt="Titus Weng" class="profile-pic">
-                    </div>
-                    <div class="bio-text-col">
-                        <h3>Brief Introduction</h3>
-                        <p>I’m Titus Weng (Tiduo Weng), an international student from China at Bucknell University studying Computer Science. I’m interested in real-time systems that combine computer vision, graphics, and XR.</p>
-                        
-                        <h3>About Me</h3>
-                        <p>I’m pretty straightforward: I like learning by building things and then fixing what doesn’t feel right. If something is “almost working,” I usually want to understand what’s actually happening.</p>
-                        <p>Recently I’ve been spending time on projects around computer vision, interactive graphics, and XR, and I’m especially drawn to work that feels responsive and practical.</p>
-                    </div>
-                </div>
-
-                <div class="ten-things-section">
-                    <h3>10 Things Outside of Academics</h3>
-                    <ul class="fact-list">
-                        <li>I was born in China, then transferred to a U.S. high school in 10th grade and lived with my aunt’s family and my cousins.</li>
-                        <li>I switch between Chinese and English all the time depending on who I’m talking to.</li>
-                        <li>I’m a little obsessive about cleanliness and order. If I see dust on my desk, I’ll clean it before I can really start working.</li>
-                        <li>I can spend hours tweaking my computer settings and setup until everything feels “just right.”</li>
-                        <li>When my computer acts up, I usually troubleshoot and fix it myself step by step.</li>
-                        <li>I’m a dog person.</li>
-                        <li>I like trying new ways to interact with devices, like keyboard and mouse, controller, and VR.</li>
-                        <li>I’m interested in philosophy and how different traditions explain similar ideas in their own language.</li>
-                        <li>I’m learning fingerstyle guitar.</li>
-                        <li>I try to eat fruit regularly.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="timeline" class="tab-content">
-            <div class="section-inner glass-card">
-                <div class="timeline-container">
-                    <div class="timeline-item highlight">
-                        <div class="t-year">2024</div>
-                        <div class="t-content">
-                            <h4>2nd Best Paper Award @ SVR</h4>
-                            <p>"Sign2Sign-A First Attempt" published in the 26th Symposium on Virtual and Augmented Reality.</p>
-                            <div class="btn-group">
-                                <a href="https://sol.sbc.org.br/index.php/svr_estendido/article/view/30447" target="_blank" class="t-link">Publication →</a>
-                                <a href="Sign2Signproject.pdf" target="_blank" class="t-link poster-btn">Research Poster →</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="t-year">2025</div>
-                        <div class="t-content">
-                            <h4>Operating Systems TA</h4>
-                            <p>Assisting students with processor management and memory allocation logic for CSCI 315.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="tab-content">
-            <div class="section-inner glass-card">
-                <div class="project-header">
-                    <h2>WebGPU Laboratory</h2>
-                    <div id="gpu-pill" class="status-pill">Checking GPU...</div>
-                </div>
-
-                <div id="gpu-instructions" class="gpu-guide" style="display:none;">
-                    <h3>How to Enable WebGPU</h3>
-                    <p>WebGPU is the next generation of web graphics, but it may require a quick setting change:</p>
-                    <div class="guide-steps">
-                        <div class="step">
-                            <strong>Chrome/Edge:</strong> Go to <code>chrome://flags/#enable-unsafe-webgpu</code> and set it to <b>Enabled</b>.
-                        </div>
-                        <div class="step">
-                            <strong>Windows:</strong> Ensure <b>Hardware Acceleration</b> is ON in Browser Settings > System.
-                        </div>
-                        <div class="step">
-                            <strong>Safari:</strong> Go to Settings > Advanced > Feature Flags > Check <b>WebGPU</b>.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-grid">
-                    <a href="quest1/index.html">Quest 01: 2D Static</a>
-                    <a href="quest2/quest2.html">Quest 02: Animated</a>
-                    <a href="quest3/quest3.html">Quest 03: Interactive</a>
-                    <a href="quest4/quest4.html">Quest 04: Particles</a>
-                    <a href="quest5/quest5.html">Quest 05: Deformation</a>
-                    <a href="quest6/quest6.html">Quest 06: 3D Mesh</a>
-                    <a href="quest7/quest7.html">Quest 07: Volumetric</a>
-                    <a href="quest8/quest8.html">Quest 08: Ray Tracing</a>
-                    <a href="quest9/quest9.html">Quest 09: Mirrors</a>
-                    <a href="quest10/quest10.html">Quest 10: Acceleration</a>
-                    <a href="FinalProject/">FireandIce</a>
-                    <a href="https://virtualartgalleryv2.web.app/" target="_blank" class="featured-project">Virtual Art Gallery</a>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <script>
-        function openTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            document.getElementById(tabName).classList.add('active');
-            document.getElementById('nav-' + tabName).classList.add('active');
-            window.scrollTo(0,0);
-        }
-
-        async function checkWebGPU() {
-            const pill = document.getElementById('gpu-pill');
-            const instructions = document.getElementById('gpu-instructions');
-            
-            if (!navigator.gpu) {
-                pill.textContent = "Hardware Incompatible";
-                pill.classList.add('error');
-                instructions.style.display = "block";
-                return;
-            }
-
-            const adapter = await navigator.gpu.requestAdapter();
-            if (!adapter) {
-                pill.textContent = "GPU Disabled";
-                pill.classList.add('warning');
-                instructions.style.display = "block";
-            } else {
-                pill.textContent = "WebGPU Ready";
-                pill.classList.add('ready');
-            }
-        }
-        checkWebGPU();
-    </script>
 </body>
 </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resume | Titus Weng</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        .resume-container {
+            height: calc(100vh - 160px);
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+        .resume-viewer {
+            flex-grow: 1;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .download-bar {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mesh-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="/" class="nav-item">Home</a>
+            <a href="/bio" class="nav-item">Bio</a>
+            <a href="/projects" class="nav-item">Projects</a>
+            <a href="/resume" class="nav-item active">Resume</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="tab-content active">
+            <div class="section-inner glass-card resume-container">
+                <div class="download-bar">
+                    <a href="../resume.pdf" download class="t-link" style="font-weight: 600; text-decoration: none;">
+                        Download PDF ↓
+                    </a>
+                </div>
+                
+                <iframe 
+                    src="../resume.pdf#view=FitH" 
+                    class="resume-viewer"
+                    title="Titus Weng Resume">
+                    <p>Your browser does not support PDFs. 
+                       <a href="../resume.pdf">Download instead</a>.
+                    </p>
+                </iframe>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

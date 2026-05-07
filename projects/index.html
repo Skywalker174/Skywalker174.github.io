@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects | Titus Weng</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <style>
+        .video-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-top: 15px;
+            background: #000;
+        }
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+        .collapse-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .collapse-box summary {
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .collapse-box summary::-webkit-details-marker {
+            display: none;
+        }
+        .collapse-box summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+        .collapse-box[open] summary::after {
+            content: '-';
+        }
+        .section-title {
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mesh-container">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="noise-overlay"></div>
+    </div>
+
+    <nav class="top-nav">
+        <div class="nav-links">
+            <a href="/" class="nav-item">Home</a>
+            <a href="/bio" class="nav-item">Bio</a>
+            <a href="/projects" class="nav-item active">Projects</a>
+            <a href="/resume" class="nav-item">Resume</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <section class="tab-content active">
+            
+            <div class="section-inner glass-card" style="margin-bottom: 30px;">
+                <h2 class="section-title">Experience & Timeline</h2>
+                <div class="timeline-container">
+                    <div class="timeline-item highlight">
+                        <div class="t-year">2024</div>
+                        <div class="t-content">
+                            <h4>2nd Best Paper Award @ SVR</h4>
+                            <p>"Sign2Sign-A First Attempt" published in the 26th Symposium on Virtual and Augmented Reality.</p>
+                            <div class="btn-group">
+                                <a href="https://sol.sbc.org.br/index.php/svr_estendido/article/view/30447" target="_blank" class="t-link">Publication →</a>
+                                <a href="../Sign2Signproject.pdf" target="_blank" class="t-link poster-btn">Research Poster →</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="t-year">2025-Present</div>
+                        <div class="t-content">
+                            <h4>Operating Systems TA</h4>
+                            <p>Assisting students with processor management and memory allocation logic for CSCI 315.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-inner glass-card" style="margin-bottom: 30px;">
+                <h2 class="section-title">Graphics & Interactive</h2>
+                
+                <div style="margin-bottom: 30px;">
+                    <h4>Featured WebXR Project</h4>
+                    <a href="https://virtualartgalleryv2.web.app/" target="_blank" class="featured-project" style="display:inline-block; margin-top: 10px;">
+                        Virtual Art Gallery ↗
+                    </a>
+                </div>
+
+                <div class="project-header">
+                    <h4 style="margin-top: 0; margin-bottom: 0;">WebGPU Laboratory</h4>
+                    <div id="gpu-pill" class="status-pill">Checking GPU...</div>
+                </div>
+
+                <div id="gpu-instructions" class="gpu-guide" style="display:none;">
+                    <h3>How to Enable WebGPU</h3>
+                    <p>WebGPU is the next generation of web graphics, but it may require a quick setting change:</p>
+                    <div class="guide-steps">
+                        <div class="step"><strong>Chrome/Edge:</strong> Go to <code>chrome://flags/#enable-unsafe-webgpu</code> and set it to <b>Enabled</b>.</div>
+                        <div class="step"><strong>Windows:</strong> Ensure <b>Hardware Acceleration</b> is ON in Browser Settings > System.</div>
+                        <div class="step"><strong>Safari:</strong> Go to Settings > Advanced > Feature Flags > Check <b>WebGPU</b>.</div>
+                    </div>
+                </div>
+
+                <details class="collapse-box">
+                    <summary>WebGPU Projects Practice</summary>
+                    <div class="project-grid" style="margin-top: 20px;">
+                        <a href="../quest1/index.html">Quest 01: 2D Static</a>
+                        <a href="../quest2/quest2.html">Quest 02: Animated</a>
+                        <a href="../quest3/quest3.html">Quest 03: Interactive</a>
+                        <a href="../quest4/quest4.html">Quest 04: Particles</a>
+                        <a href="../quest5/quest5.html">Quest 05: Deformation</a>
+                        <a href="../quest6/quest6.html">Quest 06: 3D Mesh</a>
+                        <a href="../quest7/quest7.html">Quest 07: Volumetric</a>
+                        <a href="../quest8/quest8.html">Quest 08: Ray Tracing</a>
+                        <a href="../quest9/quest9.html">Quest 09: Shading</a>
+                        <a href="../quest10/quest10.html">Quest 10: Acceleration</a>
+                        <a href="../FinalProject/">WebgpuGamePractice</a>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="section-inner glass-card" style="margin-bottom: 30px;">
+                <h2 class="section-title">Hardware & Robotics</h2>
+                <details class="collapse-box">
+                    <summary>Autonomous Line-Tracking Robot</summary>
+                    <div class="t-content" style="margin-top: 15px;">
+                        <p>Designed and programmed a robotic car capable of autonomous line-following and precise stopping at designated positions.</p>
+                        
+                        <div class="video-container">
+                            <video controls preload="metadata">
+                                <source src="../cart.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        async function checkWebGPU() {
+            const pill = document.getElementById('gpu-pill');
+            const instructions = document.getElementById('gpu-instructions');
+            
+            if (!navigator.gpu) {
+                pill.textContent = "Hardware Incompatible";
+                pill.classList.add('error');
+                instructions.style.display = "block";
+                return;
+            }
+
+            const adapter = await navigator.gpu.requestAdapter();
+            if (!adapter) {
+                pill.textContent = "GPU Disabled";
+                pill.classList.add('warning');
+                instructions.style.display = "block";
+            } else {
+                pill.textContent = "WebGPU Ready";
+                pill.classList.add('ready');
+            }
+        }
+        checkWebGPU();
+    </script>
+</body>
+</html>
