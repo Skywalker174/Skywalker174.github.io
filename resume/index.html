@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
     <style>
         .resume-container {
-            height: calc(100vh - 160px);
+            min-height: calc(100vh - 160px);
             margin-top: 20px;
             display: flex;
             flex-direction: column;
@@ -19,6 +19,7 @@
         .resume-viewer {
             flex-grow: 1;
             width: 100%;
+            height: calc(100vh - 240px);
             border: none;
             border-radius: 12px;
             background: rgba(255, 255, 255, 0.1);
@@ -29,13 +30,18 @@
         }
         @media (max-width: 768px) {
             .resume-container {
-                height: calc(100vh - 120px);
+                min-height: auto;
+                height: auto;
                 margin-top: 10px;
                 padding: 15px;
             }
+            .resume-viewer {
+                height: 70vh;
+                min-height: 500px;
+            }
             .download-bar {
                 text-align: center;
-                margin-bottom: 10px;
+                margin-bottom: 15px;
             }
             .download-bar .t-link {
                 display: block;
