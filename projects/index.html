@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Projects | Titus Weng</title>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
 
     <style>
+        /* Mobile-first Project Page Specific Adjustments */
         .video-container {
             width: 100%;
             border-radius: 12px;
@@ -72,6 +74,30 @@
         .project-block {
             margin-bottom: 35px;
         }
+
+        /* Fixed structural flex container for the WebGPU tracking panel */
+        .project-header {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: flex-start;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        @media (min-width: 480px) {
+            .project-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+
+        /* Additional status pill colors matching our design layout system */
+        .status-pill.warning {
+            color: #ff9800;
+            border-color: #ff9800;
+        }
     </style>
 </head>
 
@@ -86,44 +112,37 @@
 
     <nav class="top-nav">
         <div class="nav-links">
-            <a href="/" class="nav-item">Home</a>
-            <a href="/bio" class="nav-item">Bio</a>
-            <a href="/projects" class="nav-item active">Projects</a>
-            <a href="/resume" class="nav-item">Resume</a>
+            <a href="../" class="nav-item">Home</a>
+            <a href="../bio" class="nav-item">Bio</a>
+            <a href="../projects" class="nav-item active">Projects</a>
+            <a href="../resume" class="nav-item">Resume</a>
         </div>
     </nav>
 
     <main class="main-content">
-        <section class="tab-content active">
+        <section class="tab-content active" style="padding-top: 14vh; max-width: 1000px; margin: 0 auto;">
 
-            <!-- EXPERIENCE -->
             <div class="section-inner glass-card" style="margin-bottom: 30px;">
                 <h2 class="section-title">Experience & Timeline</h2>
-
                 <div class="timeline-container">
-
                     <div class="timeline-item highlight">
                         <div class="t-year">2024</div>
-
                         <div class="t-content">
                             <h4>2nd Best Paper Award @ SVR</h4>
-
                             <p>
                                 "Sign2Sign-A First Attempt" published in the
                                 26th Symposium on Virtual and Augmented Reality.
                             </p>
-
                             <div class="btn-group">
                                 <a href="https://sol.sbc.org.br/index.php/svr_estendido/article/view/30447"
                                    target="_blank"
                                    class="t-link">
-                                   Publication →
+                                    Publication →
                                 </a>
-
                                 <a href="../Sign2Signproject.pdf"
                                    target="_blank"
                                    class="t-link poster-btn">
-                                   Research Poster →
+                                    Research Poster →
                                 </a>
                             </div>
                         </div>
@@ -131,28 +150,22 @@
 
                     <div class="timeline-item">
                         <div class="t-year">2025-Present</div>
-
                         <div class="t-content">
                             <h4>Operating Systems TA</h4>
-
                             <p>
                                 Assisting students with processor management and
                                 memory allocation logic for CSCI 315.
                             </p>
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- GRAPHICS -->
             <div class="section-inner glass-card" style="margin-bottom: 30px;">
                 <h2 class="section-title">Graphics & Interactive</h2>
 
-                <!-- WEBXR -->
                 <div class="project-block">
                     <h4>Featured WebXR Project</h4>
-
                     <a href="https://virtualartgalleryv2.web.app/"
                        target="_blank"
                        class="t-link"
@@ -161,10 +174,8 @@
                     </a>
                 </div>
 
-                <!-- WEBSIGN2SIGN -->
                 <div class="project-block">
                     <h4>WebSign2Sign</h4>
-
                     <p class="project-description">
                         A browser-based hand sign recognition demo for digits 1-10 (and 11 as exception)
                         using webcam input and a lightweight hand-tracking pipeline.
@@ -172,7 +183,6 @@
                         so some gestures may not be recognized reliably when the hand
                         orientation differs from the training examples.
                     </p>
-
                     <a href="https://websign2sign.web.app/"
                        target="_blank"
                        class="t-link"
@@ -181,134 +191,69 @@
                     </a>
                 </div>
 
-                <!-- WEBGPU -->
                 <div class="project-header">
-                    <h4 style="margin-top: 0; margin-bottom: 0;">
-                        WebGPU Laboratory
-                    </h4>
-
-                    <div id="gpu-pill" class="status-pill">
-                        Checking GPU...
-                    </div>
+                    <h4 style="margin: 0;">WebGPU Laboratory</h4>
+                    <div id="gpu-pill" class="status-pill">Checking GPU...</div>
                 </div>
 
-                <div id="gpu-instructions"
-                     class="gpu-guide"
-                     style="display:none;">
-
+                <div id="gpu-instructions" class="gpu-guide" style="display:none;">
                     <h3>How to Enable WebGPU</h3>
-
                     <p>
                         WebGPU is the next generation of web graphics,
                         but it may require a quick setting change:
                     </p>
-
                     <div class="guide-steps">
-
                         <div class="step">
-                            <strong>Chrome/Edge:</strong>
-                            Go to
-                            <code>chrome://flags/#enable-unsafe-webgpu</code>
-                            and set it to <b>Enabled</b>.
+                            <strong>Chrome/Edge:</strong><br>
+                            Go to <code>chrome://flags/#enable-unsafe-webgpu</code> and set it to <b>Enabled</b>.
                         </div>
-
                         <div class="step">
-                            <strong>Windows:</strong>
-                            Ensure <b>Hardware Acceleration</b> is ON
-                            in Browser Settings > System.
+                            <strong>Windows:</strong><br>
+                            Ensure <b>Hardware Acceleration</b> is ON in Browser Settings > System.
                         </div>
-
                         <div class="step">
-                            <strong>Safari:</strong>
-                            Go to Settings > Advanced > Feature Flags >
-                            Check <b>WebGPU</b>.
+                            <strong>Safari:</strong><br>
+                            Go to Settings > Advanced > Feature Flags > Check <b>WebGPU</b>.
                         </div>
-
                     </div>
                 </div>
 
                 <details class="collapse-box">
                     <summary>WebGPU Projects Practice</summary>
-
                     <div class="project-grid" style="margin-top: 20px;">
-
-                        <a href="../quest1/index.html">
-                            Quest 01: 2D Static
-                        </a>
-
-                        <a href="../quest2/quest2.html">
-                            Quest 02: Animated
-                        </a>
-
-                        <a href="../quest3/quest3.html">
-                            Quest 03: Interactive
-                        </a>
-
-                        <a href="../quest4/quest4.html">
-                            Quest 04: Particles
-                        </a>
-
-                        <a href="../quest5/quest5.html">
-                            Quest 05: Deformation
-                        </a>
-
-                        <a href="../quest6/quest6.html">
-                            Quest 06: 3D Mesh
-                        </a>
-
-                        <a href="../quest7/quest7.html">
-                            Quest 07: Volumetric
-                        </a>
-
-                        <a href="../quest8/quest8.html">
-                            Quest 08: Ray Tracing
-                        </a>
-
-                        <a href="../quest9/quest9.html">
-                            Quest 09: Shading
-                        </a>
-
-                        <a href="../quest10/quest10.html">
-                            Quest 10: Acceleration
-                        </a>
-
-                        <a href="../FinalProject/">
-                            WebgpuGamePractice
-                        </a>
-
+                        <a href="../quest1/index.html">Quest 01: 2D Static</a>
+                        <a href="../quest2/quest2.html">Quest 02: Animated</a>
+                        <a href="../quest3/quest3.html">Quest 03: Interactive</a>
+                        <a href="../quest4/quest4.html">Quest 04: Particles</a>
+                        <a href="../quest5/quest5.html">Quest 05: Deformation</a>
+                        <a href="../quest6/quest6.html">Quest 06: 3D Mesh</a>
+                        <a href="../quest7/quest7.html">Quest 07: Volumetric</a>
+                        <a href="../quest8/quest8.html">Quest 08: Ray Tracing</a>
+                        <a href="../quest9/quest9.html">Quest 09: Shading</a>
+                        <a href="../quest10/quest10.html">Quest 10: Acceleration</a>
+                        <a href="../FinalProject/">WebgpuGamePractice</a>
                     </div>
                 </details>
-
             </div>
 
-            <!-- HARDWARE -->
-            <div class="section-inner glass-card" style="margin-bottom: 30px;">
-
+            <div class="section-inner glass-card">
                 <h2 class="section-title">Hardware & Robotics</h2>
-
                 <details class="collapse-box">
-
                     <summary>Autonomous Line-Tracking Robot</summary>
-
                     <div class="t-content" style="margin-top: 15px;">
-
                         <p>
                             Designed and programmed a robotic car capable of
                             autonomous line-following and precise stopping
                             at designated positions.
                         </p>
-
                         <div class="video-container">
                             <video controls preload="metadata">
                                 <source src="../cart.mp4" type="video/mp4">
-
                                 Your browser does not support the video tag.
                             </video>
                         </div>
-
                     </div>
                 </details>
-
             </div>
 
         </section>
@@ -316,7 +261,6 @@
 
     <script>
         async function checkWebGPU() {
-
             const pill = document.getElementById('gpu-pill');
             const instructions = document.getElementById('gpu-instructions');
 
@@ -338,7 +282,6 @@
                 pill.classList.add('ready');
             }
         }
-
         checkWebGPU();
     </script>
 

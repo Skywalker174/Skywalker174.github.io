@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <title>Bio | Titus Weng</title>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,16 +20,17 @@
 
     <nav class="top-nav">
         <div class="nav-links">
-            <a href="/" class="nav-item">Home</a>
-            <a href="/bio" class="nav-item active">Bio</a>
-            <a href="/projects" class="nav-item">Projects</a>
-            <a href="/resume" class="nav-item">Resume</a>
+            <a href="../" class="nav-item">Home</a>
+            <a href="../bio" class="nav-item active">Bio</a>
+            <a href="../projects" class="nav-item">Projects</a>
+            <a href="../resume" class="nav-item">Resume</a>
         </div>
     </nav>
 
     <main class="main-content">
-        <section class="tab-content active">
+        <section class="tab-content active" style="padding-top: 14vh; max-width: 1000px; margin: 0 auto;">
             <div class="section-inner glass-card">
+                
                 <div class="bio-layout">
                     <div class="bio-image-col">
                         <img src="../me.png" alt="Titus Weng" class="profile-pic">
@@ -43,8 +45,8 @@
                     </div>
                 </div>
 
-                <div class="ten-things-section">
-                    <h3>10 Things Outside of Academics</h3>
+                <div class="ten-things-section" style="margin-top: 40px;">
+                    <h3 style="margin-bottom: 20px;">10 Things Outside of Academics</h3>
                     <ul class="fact-list">
                         <li>I was born in China, then transferred to a U.S. high school in 10th grade and lived with my aunt’s family and my cousins.</li>
                         <li>I switch between Chinese and English all the time depending on who I’m talking to.</li>
@@ -58,6 +60,7 @@
                         <li>I try to eat fruit regularly.</li>
                     </ul>
                 </div>
+                
             </div>
         </section>
     </main>

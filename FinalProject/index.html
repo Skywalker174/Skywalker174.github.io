@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Forest of Ice and Flame - Adventure Quest</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <style>
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         margin: 0;
+        padding: 0;
         font-family: Arial, sans-serif;
         background: linear-gradient(135deg, #0A3D30, #154734, #0F2027);
         overflow: hidden;
@@ -14,7 +19,9 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        }
+        width: 100vw;
+        height: 100vh;
+      }
 
       #renderCanvas {
         position: absolute;
@@ -24,6 +31,7 @@
         height: 100%;
         z-index: -1;
       }
+
       .menu-content {
         position: absolute;
         top: 50%;
@@ -33,73 +41,215 @@
         text-align: center;
         color: #FFF;
         padding: 20px;
-}
-
+        width: 90%;
+        max-width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
 
       h1 {
-        font-size: 52px;
+        font-size: 8vw;
+        max-font-size: 48px;
         text-shadow: 2px 2px 4px #000;
+        margin-bottom: 15px;
+        line-height: 1.2;
       }
+
       p {
-        font-size: 22px;
+        font-size: 4.5vw;
+        max-font-size: 18px;
         text-shadow: 1px 1px 3px #000;
+        line-height: 1.5;
       }
+
+      @media (min-width: 769px) {
+        h1 { font-size: 48px; }
+        p { font-size: 18px; }
+      }
+
       button {
-        font-size: 22px;
+        font-size: 18px;
         padding: 12px 24px;
-        margin: 10px;
+        margin: 8px;
         border: none;
         cursor: pointer;
         background-color: #FF4500;
         color: white;
         border-radius: 8px;
         transition: 0.3s;
+        touch-action: manipulation;
       }
+
       button:hover {
         background-color: #E03E00;
       }
+
       #instructionOverlay {
         display: none;
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.75);
+        background: rgba(0, 0, 0, 0.9);
         color: #FFF;
-        padding: 20px;
-        border-radius: 8px;
-        max-width: 80%;
-        font-size: 20px;
+        padding: 25px;
+        border-radius: 12px;
+        width: 85%;
+        max-width: 500px;
+        max-height: 80vh;
+        overflow-y: auto;
+        font-size: 16px;
         text-align: left;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 10;
+      }
+
+      #instructionOverlay h2 {
+        margin-top: 0;
+        font-size: 22px;
+        color: #FF4500;
+      }
+
+      #instructionOverlay ul {
+        padding-left: 20px;
+        margin-bottom: 20px;
+      }
+
+      #instructionOverlay li {
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      /* On-screen Mobile Virtual Controller Styles */
+      .mobile-controls {
+        display: none;
+        position: fixed;
+        bottom: 25px;
+        left: 0;
+        width: 100%;
+        padding: 0 30px;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 5;
+        pointer-events: none;
+      }
+
+      .dpad-group, .action-group {
+        display: flex;
+        gap: 12px;
+        pointer-events: auto;
+      }
+
+      .ctrl-btn {
+        width: 60px;
+        height: 60px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .ctrl-btn:active {
+        background: rgba(255, 69, 0, 0.6);
+        border-color: #FF4500;
+        transform: scale(0.92);
+      }
+
+      /* Activate the custom layout system for mobile viewports */
+      @media (max-pointer: coarse) {
+        .mobile-controls {
+          display: flex;
+        }
       }
     </style>
   </head>
   <body>
     <canvas id="renderCanvas"></canvas>
     
-    <div class="menu-content">
+    <div class="menu-content" id="mainMenu">
       <h1>Maze of Ice and Flame</h1>
       <p>
-        Step into the mystical forest where the ice and the fire.
+        Step into the mystical forest where ice meets fire.<br>
         Your epic adventure begins here.
       </p>
       <button id="startGameButton">Start Game</button>
       <button id="toggleInstructionsButton">Show Instructions</button>
+      
       <div id="instructionOverlay">
         <h2>Game Instructions</h2>
         <p>
           Welcome to Maze of Ice and Flame – a 2D adventure where only the right moves ensure your survival and victory.
         </p>
         <ul>
-          <li><strong>Movement:</strong> Use <em>A/D</em> (or the Left/Right Arrow keys) to move horizontally.</li>
-          <li><strong>Jumping:</strong> Press the <em>W</em> key or the <em>Up Arrow</em> to jump.</li>
-          <li><strong>Dangerous Regions:</strong> Each hero has its own dangerous region. Stepping into the dangerous zone of the wrong hero will result in death. Make sure you stay in the safe area for your character.</li>
-          <li><strong>Switches:</strong> Some switches can only be triggered by the appropriate hero. Use the correct character to activate these switches and progress through the maze.</li>
-          <li><strong>Star Collection:</strong> Collect stars scattered throughout the maze to boost your score and unlock extra rewards.</li>
+          <li><strong>Movement:</strong> Use <em>A/D</em> (or Left/Right Arrow keys / On-Screen D-Pad) to move horizontally.</li>
+          <li><strong>Jumping:</strong> Press the <em>W</em> key, <em>Up Arrow</em>, or the On-Screen jump button to leap.</li>
+          <li><strong>Dangerous Regions:</strong> Each hero has its own dangerous region. Stepping into the hazard zone of the wrong character results in death.</li>
+          <li><strong>Switches:</strong> Some mechanisms must be triggered by a specific hero elemental type to progress.</li>
+          <li><strong>Star Collection:</strong> Accumulate stars hidden throughout the maze structures to boost your ranking score.</li>
         </ul>
-        <button id="closeInstructionsButton">Close</button>
+        <button id="closeInstructionsButton" style="width: 100%; margin: 0;">Close</button>
       </div>      
     </div>
+
+    <div class="mobile-controls" id="touchUI" style="display: none;">
+      <div class="dpad-group">
+        <div class="ctrl-btn" id="btn-left">←</div>
+        <div class="ctrl-btn" id="btn-right">→</div>
+      </div>
+      <div class="action-group">
+        <div class="ctrl-btn" id="btn-up">↑</div>
+      </div>
+    </div>
+
     <script type="module" src="/FinalProject/Final Project/menu.js"></script>
+    <script>
+      // Setup structural toggle control interface for Instructions Overlays
+      const menu = document.getElementById('mainMenu');
+      const startBtn = document.getElementById('startGameButton');
+      const touchUI = document.getElementById('touchUI');
+
+      startBtn.addEventListener('click', () => {
+        menu.style.display = 'none';
+        // Display touch inputs on mobile form factors following menu exit
+        if (window.matchMedia("(pointer: coarse)").matches) {
+          touchUI.style.display = 'flex';
+        }
+      });
+
+      // Simple implementation hook to trace dynamic virtual input values
+      const keys = { w: false, a: false, d: false };
+      
+      function bindTouchElement(elementId, targetKey) {
+        const element = document.getElementById(elementId);
+        if(!element) return;
+        
+        const setKey = (state) => {
+          keys[targetKey] = state;
+          // Global dispatch hook matching keyboard events for backend scripts
+          const eventType = state ? 'keydown' : 'keyup';
+          const keyCode = targetKey === 'w' ? 'KeyW' : targetKey === 'a' ? 'KeyA' : 'KeyD';
+          window.dispatchEvent(new KeyboardEvent(eventType, { code: keyCode, key: targetKey }));
+        };
+
+        element.addEventListener('touchstart', (e) => { e.preventDefault(); setKey(true); });
+        element.addEventListener('touchend', (e) => { e.preventDefault(); setKey(false); });
+      }
+
+      bindTouchElement('btn-left', 'a');
+      bindTouchElement('btn-right', 'd');
+      bindTouchElement('btn-up', 'w');
+    </script>
   </body>
 </html>
